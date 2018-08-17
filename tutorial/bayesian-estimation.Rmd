@@ -1,11 +1,6 @@
 ---
 title: "贝叶斯估计"
-output:
-  github_document:
-    pandoc_args: --webtex
-    html_preview: true
-    toc: true
-    toc_depth: 3
+output: html_notebook
 ---
 
 贝叶斯估计和最大似然估计（MLE）都是参数估计，即基于一组给定的数据（证据）推断某个参数。
@@ -28,7 +23,7 @@ P.S.: 在 **一次** 实验中说概率，似乎不符合严格的频率学派�
 
 二项分布随机变量的概率质量函数（$X$ 取到 $k$ 值的概率）：
 $$
-f(k, n, p) = Pr(X = k) = C^n_k p ^ k (1 - p)^{n - k}
+f(k, n, p) = Pr(X = k) = C^n_k p ^ k (1 - p)^{n - k} \\
 $$
 
 其中 $C^n_k$ 是 $n$ 个元素中取出 $k$ 个元素组成的集合的数量：
@@ -63,6 +58,12 @@ dbinom(6, 10, 0.75)
 ```
 
 为什么硬币出现正面的概率升高了（从0.5到0.75），出现6次正面的概率反而从0.205下降到了0.146？
+```{r}
+x <- 1:10
+y <- x ^ 2
+z <- data.frame(x = x, y = y)
+plot(z$x, z$y)
+```
 
 # 似然函数
 
